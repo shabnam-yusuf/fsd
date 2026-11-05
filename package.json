@@ -1,0 +1,20 @@
+{
+  "name": "campus-clubs-and-forums-management-system",
+  "version": "1.0.0",
+  "description": "Campus Clubs & Forums Management System - Unified Full-Stack Application",
+  "scripts": {
+    "postinstall": "npm --prefix server install && npm --prefix client install",
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "seed": "node server/scripts/seed.js",
+    "server": "node server/server.js",
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build",
+    "verify:db": "node server/scripts/verify-all-db.js",
+    "test:workflows": "node server/scripts/run-all-10-tests.js",
+    "test:http": "node server/scripts/test-http-workflows.js",
+    "dev": "concurrently -k -n \"BACKEND,FRONTEND\" -c \"cyan,magenta\" \"node server/server.js\" \"npm --prefix client run dev\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
